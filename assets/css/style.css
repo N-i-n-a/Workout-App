@@ -1,0 +1,113 @@
+:root {
+    --color-dark--1: #2D3439;
+    --color-dark--2: #42484D;
+    --color-light--1: #aaa;
+    --color-light--2: #ECECEC;
+    --color-light--3: rgb(214, 222, 224);
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  html,
+  body {
+    font-size: 85%;
+    box-sizing: border-box;
+  }
+  #map {
+    flex: 1;
+    min-height: 1000px;
+    width: auto;
+    height: 100%;
+  }
+  #sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    max-height: 450px;
+    overflow: scroll;
+    z-index: 2;
+    background: #fff;
+  }
+  .workouts {
+    list-style: none;
+    height: 77vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .form__row {
+    background-color: var(--color-dark--2);
+    border-radius: 5px;
+    padding: 1.5rem 2.75rem;
+    margin-bottom: 1.75rem;
+    display: grid;
+    height: 5.25rem;
+    transition: all 0.5s, transform 1ms;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 2rem;
+    flex-basis: 50rem;
+    background-color: rgb(204, 201, 201);
+  }
+  .form__label {
+    flex: 0 0 50%;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .form__row {
+    display: flex;
+    align-items: center;
+  }
+  .form__input {
+    width: 100%;
+    padding: 0.3rem 1.1rem;
+    font-family: inherit;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--color-light--3);
+    transition: all 0.2s;
+  }
+  .form__input:focus {
+    outline: none;
+    background-color: #fff;
+  }
+  .workouts {
+    list-style: none;
+    height: 77vh;
+  }
+  #today-container {
+    border-width: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-dark--2);
+    color: var(--color-light--2);
+    display: flex;
+    justify-content: flex-start;
+  }
+  .container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .weather {
+    list-style: none;
+    height: 10vh;
+    font-size: 1.4rem;
+    font-family: inherit;
+    font-weight: bolder;
+    padding-bottom: 12rem;
+  }
+  .city-time,
+  .temp,
+  .weather {
+    margin: 0 1em;
+  }
+  .city-time h1 {
+    margin: 0;
+    margin-bottom: 0.2em;
+    font-size: 3em;
+  }
