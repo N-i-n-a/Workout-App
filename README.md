@@ -2,7 +2,11 @@
 
 ## Description
 ```
-This project is produced as part of a group project - Challenge 1. The aplication takes in user inputs such as type of workout, choosing between walking, running or cycling. It displays a map to the user, takes their location and prompts them to choose a route for their workout. Additional inputs such as the distance, duration and time of workoout. Upon submit this information is stored, so the user can track their workout progress.
+This project is produced as part of a group project - Challenge 1. 
+The aplication takes in user inputs such as type of workout, choosing between walking, running or cycling. 
+It displays a map to the user, takes their location and prompts them to choose a route for their workout. 
+Additional inputs such as the distance, duration and time of workoout. Upon submit this information is stored, 
+so the user can track their workout progress.
 ```
 
 
