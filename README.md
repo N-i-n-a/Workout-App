@@ -20,6 +20,7 @@ JavaScript
 APIs:
 
 ```
+OpenWeather Apis used within this Application
 
 ## Website Screenshot
 ![](assets/images/ADD-IMAGE-WHEN-DONE.png)
