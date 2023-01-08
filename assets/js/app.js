@@ -6,13 +6,21 @@ const distance = document.querySelector(".form__input form__input--distance");
 const duration = document.querySelector(".form__input--duration");
 const todayContainer = document.querySelector("#today-container");
 var today = $('#weather-icon');
-//Default city when the page loads
-let cityInput = "London";
+
+//Weather
+var currentWeather = document.querySelector(".current-weather");
+var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
+
 /// Get date
 const date = moment().format("h:mm a - dddd MMM YY");
 dateOutput.innerText = date;
 console.log(date);
-//Google map
+
+//Default city when the page loads
+let cityInput = "London";
+
+
+
 function initMap(lat, lng) {
   const directionsRenderer = new google.maps.DirectionsRenderer();
   const directionsService = new google.maps.DirectionsService();
@@ -28,7 +36,9 @@ function initMap(lat, lng) {
   directionsService
     .route({
       origin: "westminster, London",
-      destination: "Fulham, London",
+
+      destination: "Chelsea, London",
+
       travelMode: google.maps.TravelMode.BICYCLING,
     })
     .then((response) => {
@@ -44,9 +54,11 @@ function getLocation() {
     currentConditions(lat, lon);
   });
 }
+
 //Weather
 var currentWeather = document.querySelector(".current-weather");
 var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
+
 //fetch data from current weather api, and display desired data on the page
 function currentConditions(lat, lon) {
   let currentWeatherAPI = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${APIkey}&units=metric`;
@@ -69,4 +81,8 @@ function currentConditions(lat, lon) {
       cityname.innerText = wdata.name;
     });
 }
+
+
 getLocation();
+=======
+
