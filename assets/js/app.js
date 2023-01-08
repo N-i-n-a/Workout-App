@@ -1,3 +1,9 @@
+//Weather
+var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
+var currentWeather = document.querySelector(".current-weather");
+
+
+
 //Get all necessary elements from the DOM
 const temp = document.querySelector(".temp");
 const dateOutput = document.querySelector(".date");
@@ -17,7 +23,6 @@ var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
 
 //Default city when the page loads
 
-=======
 
 function initMap(lat, lng) {
   const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -36,7 +41,6 @@ function initMap(lat, lng) {
       origin: "westminster, London",
 
       destination: "Chelsea, London",
-=======
 
       travelMode: google.maps.TravelMode.BICYCLING,
     })
@@ -54,7 +58,6 @@ function getLocation() {
   });
 }
 
-=======
 //Weather
 var currentWeather = document.querySelector(".current-weather");
 var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
@@ -81,5 +84,4 @@ function currentConditions(lat, lon) {
 
 
 getLocation();
-=======
 
