@@ -140,6 +140,10 @@ body {
   padding-bottom: 12rem;
 }
 
+#weather-icon {
+  margin-left: 10px;
+}
+
 .city-time,
 .temp,
 .weather {
