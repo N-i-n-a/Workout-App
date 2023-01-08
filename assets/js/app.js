@@ -5,6 +5,7 @@ const timeOutput = document.querySelector(".time");
 const distance = document.querySelector(".form__input form__input--distance");
 const duration = document.querySelector(".form__input--duration");
 const todayContainer = document.querySelector("#today-container");
+var today = $('#weather-icon');
 //Default city when the page loads
 let cityInput = "London";
 /// Get date
@@ -59,7 +60,10 @@ function currentConditions(lat, lon) {
       // city's name, and use moment to get the date
       // var city = getLocation();
       // weather condition icon
-      var weatherIcon = wdata.weather[0].icon;
+      // var weatherIcon = wdata.weather[0].icon;
+      var iconURL = "https://openweathermap.org/img/w/";
+      var weatherIcon = (`<img src='${iconURL + wdata.weather[0].icon}.png'>`);
+      today.append(weatherIcon);
       //add
       tempDisplay.innerText = Math.round(wdata.main.temp) + "°";
       cityname.innerText = wdata.name;
