@@ -1,13 +1,10 @@
 :root {
-
-=======
-  --color-dark--1: #2D3439;
-  --color-dark--2: #42484D;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
   --color-light--1: #aaa;
-  --color-light--2: #ECECEC;
+  --color-light--2: #ececec;
   --color-light--3: rgb(214, 222, 224);
 }
-
 
 * {
   margin: 0;
@@ -15,7 +12,11 @@
   box-sizing: inherit;
 }
 
-=======
+feature/jsmarker-code
+html,
+body {
+  height: 100%;
+}
 
 html,
 body {
@@ -23,15 +24,14 @@ body {
   box-sizing: border-box;
 }
 
-
-
 #map {
   flex: 1;
   min-height: 1000px;
   width: auto;
+
+
   height: 100%;
 }
-=======
 
 #sidebar {
   position: absolute;
@@ -43,7 +43,6 @@ body {
   z-index: 2;
   background: #fff;
 }
-=======
 
 .workouts {
   list-style: none;
@@ -52,7 +51,6 @@ body {
   overflow-x: hidden;
 }
 
-=======
 
 .form__row {
   background-color: var(--color-dark--2);
@@ -62,12 +60,12 @@ body {
   display: grid;
   height: 5.25rem;
   transition: all 0.5s, transform 1ms;
+
   grid-template-columns: 1fr 1fr;
   padding-top: 2rem;
   flex-basis: 50rem;
   background-color: rgb(204, 201, 201);
 }
-=======
 
 .form__label {
   flex: 0 0 50%;
@@ -75,13 +73,10 @@ body {
   font-weight: 600;
 }
 
-=======
-
 .form__row {
   display: flex;
   align-items: center;
 }
-=======
 
 .form__input {
   width: 100%;
@@ -94,14 +89,10 @@ body {
   transition: all 0.2s;
 }
 
-=======
-
 .form__input:focus {
   outline: none;
   background-color: #fff;
 }
-
-=======
 
 
 .workouts {
@@ -109,27 +100,24 @@ body {
   height: 77vh;
 }
 
-=======
-
 #today-container {
   border-width: 2px;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120%;
+
   background-color: var(--color-dark--2);
   color: var(--color-light--2);
   display: flex;
   justify-content: flex-start;
 }
 
-.container>div {
+.container > div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-=======
 
 .weather {
   list-style: none;
@@ -144,13 +132,12 @@ body {
   margin-left: 10px;
 }
 
+
 .city-time,
 .temp,
 .weather {
   margin: 0 1em;
 }
-
-=======
 
 .city-time h1 {
   margin: 0;
@@ -158,5 +145,4 @@ body {
   font-size: 3em;
 
 }
-=======
 
