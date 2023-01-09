@@ -1,72 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS and custom stylesheet -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Anton|Jura&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fizzle</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <title>Workout App</title>
-
-</head>
-    <header>
-        <nav class="navbar navbar-expand-sm">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link" href="#">New Workout</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">View Map</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Workout Records</a>
-              </li>
-            </ul>
-        </nav>
-        <h1>Workout App</h1>
-        <p>Slogan goes here</p>
-    </header>
-
-    <main>
-        <!-- maybe have a sporty background and a button called "Start a workout" and all the cards/forms appears on pressing the button -->
-        <section>
-            Section one - 3 cards to choose from Walking/Running / Cycling
-            <div class="workout-card">
-                <img src="" alt="">
-                <p>Walking</p>
+  </head>
+  <body class="">
+    <div class="row">
+      <div class="col">
+        <ul class="workouts">
+          <section class="weather">
+            <div id="today-container">
+              <div class="current-weather">
+                 <h3 class="brand">the weather</h3>
+              </div>
+              <div>
+                <h1 class="temp">16&#176;</h1>
+                <div class="city-time">
+                  <h1 class="name">London</h1>
+                  <small>
+                    
+                    <span class="date">Monday Sep 19</span>
+                  </small>
+                </div>
+            </div>
+          </section>
+          <form class="form hidden">
+            <div class="form__row">
+              <label class="form__label">Type</label>
+              <select class="form__input form__input--type">
+                <option value="running">Running</option>
+                <option value="cycling">Cycling</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label class="form__label">Distance</label>
+              <input
+                class="form__input form__input--distance"
+                placeholder="km"
+              />
+            </div>
+            <div class="form__row">
+              <label class="form__label">Duration</label>
+              <input
+                class="form__input form__input--duration"
+                placeholder="min"
+              />
             </div>
 
-            <div class="workout-card">
-                <img src="" alt="">
-                <p>Running</p>
+
+            <div class="form__row">
+              <label class="form__label">Cadence</label>
+              <input
+                class="form__input form__input--cadence"
+                placeholder="step/min"
+              />
             </div>
 
-            <div class="workout-card">
-                <img src="" alt="">
-                <p>Cycling</p>
-            </div>
+            <button class="form__btn">OK</button>
+          </form>
+        </ul>
+      </div>
+      <div class="col">
+        <div id="map"></div>
+      </div>
+    </div>
+    <div id="floating-panel"></div>
 
-        </section>
+    <div id="sidebar"></div>
 
-        <section>
-            Section two - area with map and additional info
-            <div id="map"></div>
-
-            <div id="sidebar"></div>
-          
-            <div id="floating-panel"></div>
-        </section>
-
-        <section>
-            Section three - historical workout records
-        </section>
-    </main>
-
-    <footer></footer>
-
-<body>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-    <script src="assets/js/app.js"></script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&v=weekly"
-    defer></script>
-</body>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9_LFP6G6wvFaO7nNQOKBmUpPrq_v9o8&v=weekly"
+    defer>
+    </script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9_LFP6G6wvFaO7nNQOKBmUpPrq_v9o8=initMap&libraries=geometry"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
 </html>
