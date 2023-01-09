@@ -1,12 +1,15 @@
 //Get all necessary elements from the DOM
+
 var currentWeather = document.querySelector(".current-weather");
 var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
+
 const temp = document.querySelector(".temp");
 const dateOutput = document.querySelector(".date");
 const timeOutput = document.querySelector(".time");
 const distance = document.querySelector(".form__input form__input--distance");
 const duration = document.querySelector(".form__input--duration");
 const todayContainer = document.querySelector("#today-container");
+
 
 //Default city when the page loads/------------------------------------------------------------
 let cityInput = "London";
@@ -96,18 +99,27 @@ function initMap() {
   //     directionsRenderer.setDirections(response);
   //   })
   //   .catch((e) => window.alert("Directions request failed due to " + status));
-}
 
+//var today = $('#weather-icon');
+
+//Weather
+//var currentWeather = document.querySelector(".current-weather");
+//var APIkey = "&appid=99d1a7e58f500ed377f1399b47f88c6a";
+
+}
 function getLocation() {
   navigator.geolocation.getCurrentPosition((data) => {
     const lat = data.coords.latitude;
     const lon = data.coords.longitude;
+
     initMap(lat, lon);
+
     currentConditions(lat, lon);
   });
 }
 
 //Weather
+
 
 //fetch data from current weather api, and display desired data on the page
 function currentConditions(lat, lon) {
@@ -122,12 +134,23 @@ function currentConditions(lat, lon) {
       // city's name, and use moment to get the date
       // var city = getLocation();
 
+
       // weather condition icon
       var weatherIcon = wdata.weather[0].icon;
+
+      // weather condition icon
+      // var weatherIcon = wdata.weather[0].icon;
+      //var iconURL = "https://openweathermap.org/img/w/";
+      //var weatherIcon = (`<img src='${iconURL + wdata.weather[0].icon}.png'>`);
+      //today.append(weatherIcon);
+
       //add
       tempDisplay.innerText = Math.round(wdata.main.temp) + "°";
       cityname.innerText = wdata.name;
     });
 }
 
+
 getLocation();
+
+
