@@ -143,6 +143,8 @@ getLocation();
 // local storage
 btn.addEventListener("click", function (event) {
   event.preventDefault();
+  distance.value ='';
+  duration.value = '';
   var rides = JSON.parse(localStorage.getItem("rides")) || []; // Add new ride to existing rides data in LS
   var newRide = { distance: distance.value, duration: duration.value };
   rides.push(newRide);
