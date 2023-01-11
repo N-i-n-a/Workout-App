@@ -1,7 +1,3 @@
-
-
-
-
 //Get all necessary elements from the DOM
 const temp = document.querySelector(".temp");
 const dateOutput = document.querySelector(".date");
@@ -28,7 +24,7 @@ const date = moment().format("h:mm a - dddd MMM YY");
 dateOutput.innerText = date;
 // console.log(date);
 
-
+//Google map------------------------------------------------------------------------------------------
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 51.509865, lng: -0.118092 }, //center mapp to Hyde park London
@@ -140,5 +136,4 @@ function currentConditions(lat, lon) {
     });
 }
 
-
-
+getLocation();
