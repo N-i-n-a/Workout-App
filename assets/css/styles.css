@@ -103,10 +103,9 @@ body {
   background-color: #fff;
 }
 
-
 .workouts {
   list-style: none;
-  height: 77vh;
+  height: 80vh;
 }
 
 #today-container {
@@ -155,3 +154,12 @@ body {
 
 }
 
+/* media query for UI responsiveness - mobile */
+@media screen and (max-width: 600px) {
+
+}
+
+/* media query for UI responsiveness - tablet */
+@media screen and (max-width: 900px) and (min-width: 600px) {
+
+}
