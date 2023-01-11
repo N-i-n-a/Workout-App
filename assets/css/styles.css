@@ -1,7 +1,7 @@
 :root {
   --color-dark--1: #2d3439;
-  --color-dark--2: #42484d;
-  --color-light--1: #aaa;
+  --color-dark--2: #eb5e55;
+  --color-light--1: #fdf0d5;
   --color-light--2: #ececec;
   --color-light--3: rgb(214, 222, 224);
 }
@@ -76,6 +76,7 @@ body {
 .form__row {
   display: flex;
   align-items: center;
+  background-color: #fdf0d5;
 }
 
 .form__input {
@@ -87,6 +88,14 @@ body {
   border-radius: 3px;
   background-color: var(--color-light--3);
   transition: all 0.2s;
+}
+
+.form__btn {
+  width: 25%;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-family: inherit;
 }
 
 .form__input:focus {
