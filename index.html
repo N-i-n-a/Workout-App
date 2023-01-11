@@ -1,92 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <title>Workout App</title>
-  </head>
-  <body class="">
-    <div class="row">
-      <div class="col">
-        <ul class="workouts">
-          <section class="weather">
-            <div id="today-container">
-              <div class="current-weather">
-                 <h3 class="brand">the weather</h3>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>My Cycling App</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+
+<body class="">
+  <div class="row">
+    <div class="col">
+      <ul class="workouts">
+
+        <section class="weather">
+          <div id="today-container">
+            <div class="current-weather">
+              <h3 class="brand">The Weather</h3>
+            </div>
+            <div id="weather-icon"></div>
+            <div>
+              <h2 class="temp mb-2">16&#176;</h1>
+              <div class="city-time">
+                <h1 class="name">London</h1>
+                <small>
+                  <span class="date">Monday Sep 19</span>
+                </small>
               </div>
-                <div id="weather-icon"></div>
-              <div>
-                <h1 class="temp">16&#176;</h1>
-                <div class="city-time">
-                  <h1 class="name">London</h1>
-                  <small>
-                    <span class="date">Monday Sep 19</span>
-                  </small>
-                </div>
             </div>
-          </section>
-          <form class="form hidden">
-            <div class="form__row">
-              <label class="form__label">Type</label>
-              <select class="form__input form__input--type">
-                <option value="cycling">Cycling</option>
-                <option value="running">Running</option>
-              </select>
-            </div>
-            <div class="form__row">
-              <label class="form__label">Distance</label>
-              <input id="distance-input"
-                class="form__input form__input--distance"
-                placeholder="km"
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label">Duration</label>
-              <input id="duration-input" 
-                class="form__input form__input--duration"
-                placeholder="min"
-              />
-            </div>
-            <div class="form__row">
-              <label class="form__label">Elevation</label>
-              <input
-                class="form__input form__input--cadence"
-                placeholder="step/min"
-              />
-            </div>
-            <button class="form__Btn">OK</button>
-            <p><h4 class="ElementThatHoldsTheHistoryData"></h4></p>
-          </form>
-        </ul>
-      </div>
-      <div class="col">
-        <div id="map"></div>
-      </div>
+            
+        </section>
+
+        <form class="form__hidden">
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input form__input--type">
+              <option value="cycling">Cycling</option>
+
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distance</label>
+            <input id="distance-input" class="form__input form__input--distance" placeholder="km" />
+
+          </div>
+          <div class="form__row">
+            <label class="form__label">Duration</label>
+            <input id="duration-input" class="form__input form__input--duration" placeholder="min" />
+
+          </div>
+
+          <div class="form__row">
+            <label class="form__label">Elevation</label>
+            <input class="form__input form__input--cadence" placeholder="step/min" />
+          </div>
+          <button class="form__btn">Submit</button>
+        </form>
+
+      </ul>
+
     </div>
-    <div id="floating-panel"></div>
+    <div class="col">
+      <div id="map"></div>
+    </div>
+  </div>
+  <div id="floating-panel"></div>
 
-    <div id="sidebar"></div>
+  <div id="sidebar"></div>
 
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9_LFP6G6wvFaO7nNQOKBmUpPrq_v9o8&v=weekly"
-      defer
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.6.2.min.js"
-      integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_9_LFP6G6wvFaO7nNQOKBmUpPrq_v9o8&v=weekly"
+    defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js"
+    integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
 </html>
