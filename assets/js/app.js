@@ -2,8 +2,8 @@
 const temp = document.querySelector(".temp");
 const dateOutput = document.querySelector(".date");
 const timeOutput = document.querySelector(".time");
-const distance = document.querySelector(".form__input form__input--distance");
-const duration = document.querySelector(".form__input--duration");
+const distance = document.querySelector("#distance-input");
+const duration = document.querySelector("#duration-input");
 const todayContainer = document.querySelector("#today-container");
 
 // set my variables
@@ -15,6 +15,8 @@ var map;
 var markers = [];
 var directionsService;
 var directionsRenderer;
+var today = $('#weather-icon');
+var btn = document.querySelector('.form__Btn');
 
 //Default city when the page loads/------------------------------------------------------------
 let cityInput = "London";
@@ -56,13 +58,7 @@ function addMarker(location) {
     calculateAndDisplayRoute();
   }
 }
-function deleteMarkers() {
-  // Clear markers from the map
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }
-  markers = [];
-}
+
 //function to add distance and duration:
 function getDistanceAndDuration(response) {
   var route = response.routes[0];
@@ -121,15 +117,11 @@ function currentConditions(lat, lon) {
       return response.json();
     })
     .then(function (wdata) {
-      // weather condition icon
-      var weatherIcon = wdata.weather[0].icon;
-
       //weather condition icon
       var weatherIcon = wdata.weather[0].icon;
       var iconURL = "https://openweathermap.org/img/w/";
       var weatherIcon = `<img src='${iconURL + wdata.weather[0].icon}.png'>`;
       today.append(weatherIcon);
-
       //add
       tempDisplay.innerText = Math.round(wdata.main.temp) + "°";
       cityname.innerText = wdata.name;
@@ -137,3 +129,42 @@ function currentConditions(lat, lon) {
 }
 
 getLocation();
+
+// local storage
+btn.addEventListener("click", function (event) {
+  event.preventDefault();
+  var rides = JSON.parse(localStorage.getItem("rides")) || []; // Add new ride to existing rides data in LS
+  var newRide = { distance: distance.value, duration: duration.value };
+  rides.push(newRide);
+  localStorage.setItem("rides", JSON.stringify(rides));
+  // for loop to iterate through the collection of elements and set the innerHTML property of each element to the stored data.
+  var element = document.querySelector(".ElementThatHoldsTheHistoryData");
+  for (let i = 0; i < rides.length; i++) {
+    var h4 = document.createElement("p");
+    h4.textContent = `The :woman-biking: Distance was ${rides[i].distance} and the :stopwatch: Duration was ${rides[i].duration}:zap:️`;
+    element.appendChild(h4);
+  }
+  // Clear form
+  distance.value = "";
+  duration.value = "";
+  // Clear markers from the map
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+  markers = [];
+});
+// the same logic to show multiple rides by looping through the storedRides array and creating an html string and then showing them in HTML element.
+var workoutElements = document.getElementsByClassName("workout");
+for (let i = 0; i < workoutElements.length; i++) {
+  let htmlString = "";
+  for (let j = 0; j < storedRides.length; j++) {
+    htmlString +=
+    "Distance: " +
+    storedRides[j].distance +
+    " km <br> Duration: " +
+    storedRides[j].duration +
+    " mins <br>";
+  }
+  workoutElements[i].innerHTML = htmlString;
+}
+
