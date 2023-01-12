@@ -15,8 +15,8 @@ var map;
 var markers = [];
 var directionsService;
 var directionsRenderer;
-var today = $('#weather-icon');
-var btn = document.querySelector('.form__Btn');
+var today = $("#weather-icon");
+var btn = document.querySelector(".form__btn");
 
 //Default city when the page loads/------------------------------------------------------------
 let cityInput = "London";
@@ -58,39 +58,47 @@ function addMarker(location) {
     calculateAndDisplayRoute();
   }
 }
-
-//function to add distance and duration:
-function getDistanceAndDuration(response) {
-  var route = response.routes[0];
-  var distance = 0;
-  var duration = 0;
-  for (var i = 0; i < route.legs.length; i++) {
-    distance += route.legs[i].distance.value;
-    duration += route.legs[i].duration.value;
+function deleteMarkers() {
+  // Clear markers from the map
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
   }
-  return { distance: distance, duration: duration };
+  markers = [];
 }
 
+//function to add distance and duration:
 function calculateAndDisplayRoute() {
-  directionsService.route(
-    {
-      origin: markers[0].getPosition(),
-      destination: markers[1].getPosition(),
-      travelMode: "BICYCLING",
-    },
-    function (response, status) {
-      if (status === "OK") {
-        directionsRenderer.setDirections(response);
-        var distanceAndDuration = getDistanceAndDuration(response);
-        var distance = distanceAndDuration.distance / 1000; // convert to kilometers
-        var duration = distanceAndDuration.duration / 60; // convert to minutes
-        distanceInput.value = distance.toFixed(2);
-        durationInput.value = duration.toFixed(0);
-      } else {
-        window.alert("Directions request failed due to " + status);
-      }
+  var request = {
+    origin: markers[0].getPosition(),
+    destination: markers[1].getPosition(),
+    travelMode: "BICYCLING",
+    provideRouteAlternatives: true,
+
+    unitSystem: google.maps.UnitSystem.METRIC,
+  };
+  directionsService.route(request, function (response, status) {
+    if (status === "OK") {
+      directionsRenderer.setDirections(response);
+      var distance = response.routes[0].legs[0].distance.text;
+      var duration = response.routes[0].legs[0].duration.text;
+      var elevation = response.routes[0].legs[0].elevation;
+      // set input values
+      document.getElementById("distance-input").value = distance;
+      document.getElementById("duration-input").value = duration;
+      document.getElementById("elevation-input").value = elevation;
+    } else {
+      window.alert("Directions request failed due to " + status);
     }
-  );
+  });
+}
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition((data) => {
+    const lat = data.coords.latitude;
+    const lon = data.coords.longitude;
+    initMap(lat, lon);
+    currentConditions(lat, lon);
+  });
 }
 
 //get geolocation
@@ -133,17 +141,20 @@ getLocation();
 // local storage
 btn.addEventListener("click", function (event) {
   event.preventDefault();
+
   var rides = JSON.parse(localStorage.getItem("rides")) || []; // Add new ride to existing rides data in LS
   var newRide = { distance: distance.value, duration: duration.value };
   rides.push(newRide);
   localStorage.setItem("rides", JSON.stringify(rides));
   // for loop to iterate through the collection of elements and set the innerHTML property of each element to the stored data.
   var element = document.querySelector(".ElementThatHoldsTheHistoryData");
-  for (let i = 0; i < rides.length; i++) {
-    var h4 = document.createElement("p");
-    h4.textContent = `The :woman-biking: Distance was ${rides[i].distance} and the :stopwatch: Duration was ${rides[i].duration}:zap:️`;
-    element.appendChild(h4);
-  }
+
+  var h4 = document.createElement("p");
+  h4.textContent = `The 🚴‍♀️Distance was ${
+    rides[rides.length - 1].distance
+  } and the ⏱  Duration was ${rides[rides.length - 1].duration}⚡️`;
+  element.appendChild(h4);
+
   // Clear form
   distance.value = "";
   duration.value = "";
@@ -153,18 +164,17 @@ btn.addEventListener("click", function (event) {
   }
   markers = [];
 });
-// the same logic to show multiple rides by looping through the storedRides array and creating an html string and then showing them in HTML element.
-var workoutElements = document.getElementsByClassName("workout");
-for (let i = 0; i < workoutElements.length; i++) {
-  let htmlString = "";
-  for (let j = 0; j < storedRides.length; j++) {
-    htmlString +=
-    "Distance: " +
-    storedRides[j].distance +
-    " km <br> Duration: " +
-    storedRides[j].duration +
-    " mins <br>";
-  }
-  workoutElements[i].innerHTML = htmlString;
-}
-
+// // the same logic to show multiple rides by looping through the storedRides array and creating an html string and then showing them in HTML element.
+// var workoutElements = document.getElementsByClassName("workout");
+// for (let i = 0; i < workoutElements.length; i++) {
+//   let htmlString = "";
+//   for (let j = 0; j < storedRides.length; j++) {
+//     htmlString +=
+//       "Distance: " +
+//       storedRides[j].distance +
+//       " km <br> Duration: " +
+//       storedRides[j].duration +
+//       " mins <br>";
+//   }
+//   workoutElements[i].innerHTML = htmlString;
+// }
