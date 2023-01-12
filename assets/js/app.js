@@ -164,17 +164,16 @@ btn.addEventListener("click", function (event) {
   }
   markers = [];
 });
-// // the same logic to show multiple rides by looping through the storedRides array and creating an html string and then showing them in HTML element.
-// var workoutElements = document.getElementsByClassName("workout");
-// for (let i = 0; i < workoutElements.length; i++) {
-//   let htmlString = "";
-//   for (let j = 0; j < storedRides.length; j++) {
-//     htmlString +=
-//       "Distance: " +
-//       storedRides[j].distance +
-//       " km <br> Duration: " +
-//       storedRides[j].duration +
-//       " mins <br>";
-//   }
-//   workoutElements[i].innerHTML = htmlString;
-// }
+
+// add function on page load  which will check if the local storage has the data and then you can append that to the HTML
+window.onload = function () {
+  var rides = JSON.parse(localStorage.getItem("rides")) || [];
+  if (rides.length > 0) {
+    var element = document.querySelector(".ElementThatHoldsTheHistoryData");
+    for (let i = 0; i < rides.length; i++) {
+      var h4 = document.createElement("p");
+      h4.textContent = `The 🚴‍♀️ Distance was ${rides[i].distance} and the ⏱ Duration was ${rides[i].duration}⚡️`;
+      element.appendChild(h4);
+    }
+  }
+};
