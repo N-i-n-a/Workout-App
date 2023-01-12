@@ -175,4 +175,8 @@ body {
 
 /* media query for UI responsiveness - tablet */
 @media screen and (max-width: 768px) and (min-width: 480px) {
+  body {
+    height: 100%;
+    color: red;
+  }
 }
