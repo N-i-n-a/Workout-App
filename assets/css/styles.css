@@ -168,15 +168,9 @@ body {
   font-size: 25px;
 }
 
-/* media query for UI responsiveness - mobile */
-@media screen and (max-width: 480px) {
-
-}
-
-/* media query for UI responsiveness - tablet */
-@media screen and (max-width: 768px) and (min-width: 480px) {
-  body {
-    height: 100%;
-    color: red;
+/* media query for UI responsiveness - tablet and mobile*/
+@media screen and (max-width: 1037px) {
+  .form__hidden {
+    margin-top: 70px;
   }
 }
